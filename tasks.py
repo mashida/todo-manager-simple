@@ -30,7 +30,8 @@ def print_list(list_to_print: list[str]) -> None:
     """
     if list_to_print:
         for i, item in enumerate(list_to_print):
-            print(f"[{i}]: {item}")
+            task, date = item.split(':')
+            print(f"[{i}]: Задача: {task} | Срок: {date}")
     else:
         print("Список задач пуст")
 
@@ -68,4 +69,4 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     """
     task = input("Введите описание задачи: ")
     date = input("Введите срок задачи: ")
-    list_of_tasks.append(f"{date}:{task}")
+    list_of_tasks.append(f"{task}:{date}")
