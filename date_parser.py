@@ -35,3 +35,7 @@ def is_date(date: str) -> bool:
         if is_date_by_format(date, date_format):
             return True
     return False
+
+
+def is_date_2(date: str) -> bool:
+    return any([is_date_by_format(date, date_format) for date_format in FORMATS])
