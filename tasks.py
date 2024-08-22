@@ -1,3 +1,5 @@
+from date_parser import is_date, FORMATS
+
 def tasks_process(tasks):
     while True:
         # Выводим меню
@@ -68,5 +70,15 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     :return: Nothing
     """
     task = input("Введите описание задачи: ")
-    date = input("Введите срок задачи: ")
-    list_of_tasks.append(f"{task}:{date}")
+    attempts = 5
+    date = ''
+    for _ in range(attempts):
+        date = input(f"Введите срок задачи в форматах {FORMATS}: ")
+        if is_date(date):
+            list_of_tasks.append(f"{task}:{date}")
+            break
+        else:
+            print(f"Неправильный формат. Попробуем ещё раз")
+    else:
+        print(f"Вы исчерпали все возможные попытки. Задача не будет добавлена.")
+
