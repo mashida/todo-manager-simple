@@ -26,7 +26,7 @@ def is_date_by_format(date: str, date_format: str) -> bool:
 
 def is_date(date: str) -> bool:
     """
-    Function to check if date is a string according to at list one of FORMATS
+    Function to check if date is a string according to at least one of FORMATS
     :param date: string representing date
     :return: True is date is_date_by one format out of FORMATS
     """
@@ -38,4 +38,5 @@ def is_date(date: str) -> bool:
 
 
 def is_date_2(date: str) -> bool:
+    """Simple oneliner of is_date function"""
     return any([is_date_by_format(date, date_format) for date_format in FORMATS])
