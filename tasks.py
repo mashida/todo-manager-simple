@@ -71,7 +71,6 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     """
     task = input("Введите описание задачи: ")
     attempts = 5
-    date = ''
     for _ in range(attempts):
         date = input(f"Введите срок задачи в форматах {FORMATS}: ")
         if is_date(date):
